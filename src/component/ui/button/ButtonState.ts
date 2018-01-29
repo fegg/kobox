@@ -14,7 +14,7 @@ export default interface ButtonState {
     // 是否选中
     selected?: boolean;
     // 按钮类型
-    type: ButtonType;
+    type?: ButtonType;
 }
 
 export class ButtonStateImpl implements ButtonState {
@@ -25,7 +25,7 @@ export class ButtonStateImpl implements ButtonState {
     // 是否选中
     public selected?: boolean;
     // 按钮类型
-    public type: ButtonType;
+    public type?: ButtonType;
 
     constructor() {
         this.disabled = false;

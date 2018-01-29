@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Icon from '../icon/Icon';
 import Button from './Button';
-import ButtonState from './ButtonState';
+import ButtonState, { ButtonStateImpl } from './ButtonState';
 
 export interface AsyncButtonProps extends ButtonState {
     done: (ev: React.MouseEvent<any>) => Promise<any>;
@@ -18,6 +18,8 @@ export interface AsyncButtonState {
  * @extends {React.Component<AsyncButtonProps, AsyncButtonState>}
  */
 export default class AsyncButton extends React.Component<AsyncButtonProps, AsyncButtonState> {
+    static defaultProps = new ButtonStateImpl();
+
     constructor(props: AsyncButtonProps) {
         super(props);
 

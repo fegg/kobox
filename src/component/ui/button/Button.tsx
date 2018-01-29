@@ -5,15 +5,15 @@ import * as classNames from 'classnames';
 import { ButtonType } from './ButtonState';
 import ButtonState, { ButtonStateImpl } from './ButtonState';
 
-interface Props extends ButtonState {
+interface ButtonProps extends ButtonState {
     href?: string;
     onClick?: React.MouseEventHandler<any>;
 }
 
-export default class Button extends React.Component<Props, {}> {
+export default class Button extends React.Component<ButtonProps, {}> {
     static defaultProps: ButtonState = new ButtonStateImpl();
 
-    constructor(props: Props) {
+    constructor(props: ButtonProps) {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
@@ -26,8 +26,8 @@ export default class Button extends React.Component<Props, {}> {
     }
 
     getClassNames() {
-        const { selected, highlighted, disabled } = this.props;
-        const typeKey = Style[ButtonType[this.props.type]];
+        const { selected, highlighted, disabled, type } = this.props;
+        const typeKey = Style[ButtonType[type as ButtonType]];
         
         let clazz = {
             [Style.selected]: selected,

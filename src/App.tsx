@@ -78,7 +78,7 @@ export default class App extends React.Component<{}, AppState> {
                 <Button type={ButtonType.primary} onClick={this.handleClickHighlighted}>Hightlighted</Button>
                 <Button type={ButtonType.primary} onClick={this.handleClickDisabled}>Disabled</Button>
 
-                <AsyncButton type={ButtonType.default} done={this.handleClickDone}>我是异步按钮</AsyncButton>
+                <AsyncButton done={this.handleClickDone}>我是异步按钮</AsyncButton>
             </div>
         );
     }
