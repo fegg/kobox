@@ -6,7 +6,8 @@ import { ButtonType } from './ButtonState';
 import ButtonState, { ButtonStateImpl } from './ButtonState';
 
 interface Props extends ButtonState {
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    href?: string;
+    onClick?: React.MouseEventHandler<any>;
 }
 
 export default class Button extends React.Component<Props, {}> {
@@ -18,8 +19,8 @@ export default class Button extends React.Component<Props, {}> {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-        if (this.props.onClick) {
+    handleClick(event: React.MouseEvent<any>) {
+        if (!this.props.disabled && this.props.onClick) {
             this.props.onClick(event);
         }
     }
@@ -40,9 +41,11 @@ export default class Button extends React.Component<Props, {}> {
 
     render() {
         const clazz = this.getClassNames();
+        // 目前支持 2 种类型的 button
+        const WrapComponent = this.props.href ? 'a' : 'button';
 
         return (
-            <button className={clazz} onClick={this.handleClick}>{this.props.children}</button>
+            <WrapComponent className={clazz} onClick={this.handleClick}>{this.props.children}</WrapComponent>
         );
     }
 }

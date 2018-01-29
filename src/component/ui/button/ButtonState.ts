@@ -1,6 +1,9 @@
 export enum ButtonType {
     default = 'default',
     primary = 'primary',
+    ghost = 'ghost',
+    dashed = 'dashed',
+    danger = 'danger',
 }
 
 export default interface ButtonState {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from './component/ui/button/Button';
+import AsyncButton from './component/ui/button/AsyncButton';
 import { ButtonType } from './component/ui/button/ButtonState';
 
 interface AppState {
@@ -58,6 +59,15 @@ export default class App extends React.Component<{}, AppState> {
         });
     }
 
+    handleClickDone = (ev: React.MouseEvent<any>) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('done!');
+                resolve({status: 200, msg: 'ok'});
+            }, 5000);
+        });
+    }
+
     render() {
         const { btnState } = this.state;
         return (
@@ -67,6 +77,8 @@ export default class App extends React.Component<{}, AppState> {
                 <Button type={ButtonType.primary} onClick={this.handleClickSelected}>Selected</Button>
                 <Button type={ButtonType.primary} onClick={this.handleClickHighlighted}>Hightlighted</Button>
                 <Button type={ButtonType.primary} onClick={this.handleClickDisabled}>Disabled</Button>
+
+                <AsyncButton type={ButtonType.default} done={this.handleClickDone}>我是异步按钮</AsyncButton>
             </div>
         );
     }
