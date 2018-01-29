@@ -1,7 +1,6 @@
 {
-  "name": "koko",
-  "version": "0.1.0",
-  "private": true,
+  "name": "kobox",
+  "version": "0.1.1",
   "dependencies": {
     "@types/classnames": "^2.2.3",
     "autoprefixer": "7.1.2",
@@ -101,5 +100,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fegg/kobox.git"
   }
 }
