@@ -19,13 +19,13 @@ export default interface ButtonState {
 
 export class ButtonStateImpl implements ButtonState {
     // 是否禁用
-    public disabled?: boolean;
+    public disabled: boolean;
     // 是否高亮
-    public highlighted?: boolean;
+    public highlighted: boolean;
     // 是否选中
-    public selected?: boolean;
+    public selected: boolean;
     // 按钮类型
-    public type?: ButtonType;
+    public type: ButtonType;
 
     constructor() {
         this.disabled = false;
